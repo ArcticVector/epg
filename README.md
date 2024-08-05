@@ -136,11 +136,10 @@ And then update all the dependencies:
 npm install
 ```
 
+## Shortcut
 If you want to download all of the websites at once, you can put this into a .bat file.
-
 Create a .bat file with the name "download_sites.bat" and input this code:
 
-## Shortcut
 ```sh
 @echo off
 
