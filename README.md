@@ -107,6 +107,7 @@ Create an XML file and copy the descriptions of all the channels you need from t
 </channels>
 ```
 
+
 And then specify the path to that file via the `--channels` attribute:
 
 ```sh
@@ -134,6 +135,29 @@ And then update all the dependencies:
 ```sh
 npm install
 ```
+
+If you want to download all of the websites at once, you can put this into a .bat file.
+
+Create a .bat file with the name "download_sites.bat" and input this code:
+
+```sh
+@echo off
+
+:: Change directory
+cd C:\Users\justi\epg
+
+:: Define the list of sites
+set "sites=9tv.co.il abc.net.au allente.dk allente.fi allente.no allente.se andorradifusio.ad anteltv.com.uy arianaafgtv.com arianatelevision.com arirang.com artonline.tv awilime.com bein.com beinsports.com berrymedia.co.kr cablego.com.pe cableplus.com.uy canalplus.com cgates.lt clickthecity.com cosmote.gr cubmu.com dens.tv digiturk.com.tr directv.com.uy dishtv.in disneystar.com dsmart.com.tr dstv.com elcinema.com ena.skylifetv.co.kr energ eek.cl entertainment.ie firstmedia.com flixed.io foxsports.com.au foxtel.com.au frikanalen.no gatotv.com getafteritmedia.com guida.tv guidatv.sky.it horizon.tv i.mjh.nz i24news.tv indihometv.com ionplustv.com ipko.com knr.gl kvf.fo m.tving.com magticom.ge mako.co.il maxtv.hrvatskitelekom.hr maxtvgo.mk mediagenie.co.kr mediaklikk.hu mediaset.it melita.com meo.pt meuguia.tv mewatch.sg mi.tv mncvision.id mon-programme-tv.be movistarplus.es mtel.ba mts.rs mujtvprogram.cz myafn.dodmedia.osd.mil mysky.com.ph mytvsuper.com nhk.or.jp nhkworldpremium.com nostv.pt novacyprus.com novasports.gr nuevosiglo.com.uy nzxmltv.com ontvtonight.com osn.com pbsguam.org player.ee.co.uk pickx.be playtv.unifi.com.my plex.tv programacion-tv.elpais.com programacion.tcc.com.uy programetv.ro programme-tv.net programme-tv.vini.pf programtv.onet.pl raiplay.it reportv.com.ar rthk.hk rtmklik.rtm.gov.my rtp.pt ruv.is sat.tv shahid.mbc.net siba.com.co singtel.com sjonvarp.is sky.co.nz sky.de skylife.co.kr streamingtvguides.com superguidatv.it taiwanplus.com tapdmv.com teliatv.ee telkussa.fi telsu.fi tivu.tv toonamiaftermath.com turksatkablo.com.tr tv-programme.telecablesat.fr tv.blue.ch tv.cctv.com tv.dir.bg tv.lv tv.magenta.at tv.mail.ru tv.movistar.com.pe tv.nu tv.post.lu tv.trueid.net tv.yandex.ru tv2go.t-2.net tv24.co.uk tv24.se tvcesoir.fr tvcubana.icrt.cu tvgids.nl tvguide.com tvguide.myjcom.jp tvhebdo.com tvheute.at tvim.tv tvireland.ie tvmi.mt tvmusor.hu tvpassport.com vidio.com virginmediatelevision.ie virgintvgo.virginmedia.com visionplus.id vtm.be walesi.com.fj watch.sportsnet.ca watchyour.tv wavve.com web.magentatv.de webtv.delta.nl worldfishingnetwork.com xumo.tv zap.co.ao zuragt.mn"
+
+:: Loop through sites and run command
+for %%s in (%sites%) do (
+    echo Downloading %%s...
+    npm run grab -- --site=%%s --maxConnections=10
+)
+
+pause
+```
+This .bat file takes all the websites mentioned in the link above, and runs eatch and every one of them. Depending on your network speed, the download rate might vary
 
 ## Playlists
 
